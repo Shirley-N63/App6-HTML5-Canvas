@@ -84,15 +84,16 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 <p><button onclick="draw_c()"> Write my name </button></p> <!--when this button is pressed, it'll put your name on the canvas-->
 
 <!--IMAGE BUTTON-->
-<p><button onclick="draw_d()"> Resent canvas </button></p> <!--when this button is pressed, an image will be loaded onto the canvas-->
+<p><button onclick="draw_d()"> Reset canvas </button></p> <!--when this button is pressed, an image will be loaded onto the canvas-->
 
 <!--CLEAR BUTTON-->
 <p><button onclick="draw_e()"> Draw a picture </button></p><!--when this button is pressed, the canvas will be cleared-->
 <!--END OF CANVAS CODE-->
-	
-<!--START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button-->
-<img id="dormouse" src="https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg resize=200,100" alt="dormouse" width="10" height="5">
 
+<p>..................................................</p>
+
+<!--START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button-->
+<img id="dormouse" src="https://3.bp.blogspot.com/-BCB4_TPa_Fo/TrpESCgCvpI/AAAAAAAADKo/BWgEtGvXivE/s1600/dormouses.jpg resize=200,100" alt="dormouse" width="10" height="5">
 <canvas id="myCanvas" width="10" height="5"></canvas>
 </div>
 
@@ -105,34 +106,30 @@ function draw_b() {
 }
 
 //NAME 
-function draw_c(){
+function draw_c() {
 	var c_canvas = document.getElementById("myCanvas");
        	var c_context = c_canvas.getContext("2d");
-	b_context.fillText("Shirley Nguyen", 10, 50);
+	c_context.fillText("Shirley Nguyen", 10, 50);
 }
 
 //
-function draw_d(){
+function draw_d() {
 	var d_canvas = document.getElementById("myCanvas");
 	d_canvas.width = d_canvas.width;
 }
 
 //
-function draw_e(){
+function draw_e() {
 	var e_canvas = document.getElementById("myCanvas");
        	var e_context = e_canvas.getContext("2d");
 	var e_dormouse = document.getElementById("dormouse");
 	e_context.drawImage(dormouse, 100, 150);
-
 };
 </script>
 <!--END OF CANVAS FUNCTIONS-->
-	
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
 
 </body>
-
-	
 </html>
