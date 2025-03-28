@@ -50,28 +50,27 @@ function drawrectangle() {
 
 //NAME 
 function myName(){
-	var namecanvas = document.getElementById("canvas"); 
-	var name = namecanvas.getContext("2d"); //presents content in 2d form 
-	name.font = "30px Century Gothic"; //font of text 
-	name.fillText("Shirley Nguyen", 70, 175); //this code presents the actual text of your name 
+	
+	ctx.font = "30px Century Gothic"; //font of text 
+	ctx.fillText("Shirley Nguyen", 70, 175); //this code presents the actual text of your name 
 }
 
 //IMAGE
 function randomImage(){
- 	var imagecanvas = document.getElementById("canvas"); 
+ 	var imagecanvas = document.getElementById("myCanvas"); 
   	var rimage = imagecanvas.getContext("2d");  //presents content in 2d form
   	var img = new Image(); //gives image a variable 
   	img.src= "https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg"; 
   	
-	img.onload = function() {
-    	rimage.drawImage(img, 0, 0, 45, 45); //this draws the image inside the rectangle
-	}
+	//img.onload = function() {
+    //	rimage.drawImage(img, 0, 0, 45, 45); //this draws the image inside the rectangle
+	//}
 }
 
 //RESET
 function resetCanvas(){
-	var Rcanvaselem = document.getElementById("canvas"); 
-		Rcanvaselem.width = Rcanvaselem.width //canvas dimensions
+	var Rcanvaselem = document.getElementById("myCanvas"); 
+		Rcanvaselem.width = Rcanvaselem.width; //canvas dimensions
 } 
 </script>
 <!--END OF CANVAS FUNCTIONS-->
