@@ -33,6 +33,11 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
    </head> 
 
 <!--this section helps in determining significant time delay between committing changes and when those changes show up.-->
+<script> 
+var docMod = document.lastModified; // loads last modified time stamp into docMod variable
+alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
+console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
+</script>
 
 <!-- this section makes the app look nice/focuses on aesthetics and visual presentation -->
 <style>	
@@ -54,10 +59,8 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
     z-index: 1;
 }
 </style>
-
-	<canvas id="myCanvas" width="20" height="8" style="border:1px solid #000000;">
-	</canvas>
 <!-- end of style section of code-->
+
 
 <!-- this starts the body of the app -->
 <body>
@@ -70,71 +73,66 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
  	
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p> <!--this and the code above are disclaimers to users-->
 
+	
 <!--START OF CANVAS CODE *the following section is broken up by what buttons do when pressed*-->
 <canvas id="myCanvas" width="300" height="225" style="border:1px solid #000000;"> </canvas> <!--this first creates a canvas with a border-->
 
 <!--RECTANGLE BUTTON-->
-<button id="rectangle" type="button" onclick="drawrectangle()"> Rectangle </button> <!--when this button is pressed, a rectangle will be drawn on the canvas-->
+<p><button onclick="draw_b()"> Draw Rectangle </button></p> <!--when this button is pressed, a rectangle will be drawn on the canvas-->
 
 <!--NAME BUTTON-->
-<button onclick="myName()"> Name </button> <!--when this button is pressed, it'll put your name on the canvas-->
+<p><button onclick="draw_c()"> Write my name </button></p> <!--when this button is pressed, it'll put your name on the canvas-->
 
 <!--IMAGE BUTTON-->
-<button id="Image" type="button" onclick="randomImage()"> Image </button> <!--when this button is pressed, an image will be loaded onto the canvas-->
+<p><button onclick="draw_d()"> Resent canvas </button></p> <!--when this button is pressed, an image will be loaded onto the canvas-->
 
 <!--CLEAR BUTTON-->
-<button id="Reset" type="button" onclick="resetCanvas()"> Reset </button> <!--when this button is pressed, the canvas will be cleared-->
+<p><button onclick="draw_e()"> Draw a picture </button></p><!--when this button is pressed, the canvas will be cleared-->
 <!--END OF CANVAS CODE-->
-
 	
+<!--START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button-->
+<img id="dormouse" src="https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg resize=200,100" alt="dormouse" width="10" height="5">
+
+<canvas id="myCanvas" width="10" height="5"></canvas>
+</div>
+
+<script>
+//RECTANGLE
+function draw_b() {
+	var b_canvas = document.getElementById("myCanvas");
+       	var b_context = b_canvas.getContext("2d");
+	b_context.fillRect(120,25,150,100);
+}
+
+//NAME 
+function draw_c(){
+	var c_canvas = document.getElementById("myCanvas");
+       	var c_context = c_canvas.getContext("2d");
+	b_context.fillText("Shirley Nguyen", 10, 50);
+}
+
+//
+function draw_d(){
+	var d_canvas = document.getElementById("myCanvas");
+	d_canvas.width = d_canvas.width;
+}
+
+//
+function draw_e(){
+	var e_canvas = document.getElementById("myCanvas");
+       	var e_context = e_canvas.getContext("2d");
+	var e_dormouse = document.getElementById("dormouse");
+	e_context.drawImage(dormouse, 100, 150);
+
+};
+</script>
+<!--END OF CANVAS FUNCTIONS-->
 	
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
 
 </body>
-<script> 
-var docMod = document.lastModified; // loads last modified time stamp into docMod variable
-alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
-console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
 
-//START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button
-var canvas = document.getElementById("myCanvas"); //this gets the canvas and its contents
-    var ctx = canvas.getContext("2d");
-	
-//RECTANGLE
-function drawrectangle() {
-       	 	ctx.fillStyle = "pink"; // Set fill color
-		ctx.fillRect(50, 20, 100, 50); // Draw rectangle (x, y, width, height
-}
-
-//NAME 
-function myName(){
-	
-	ctx.font = "30px Arial"; //font of text 
-	ctx.textAlign = "left";
-	ctx.fillText("Shirley Nguyen", 10, 50); //this code presents the actual text of your name 
-	console.log("a");
-}
-
-//IMAGE
-function randomImage(){
- 	var imagecanvas = document.getElementById("myCanvas"); 
-  	var rimage = imagecanvas.getContext("2d");  //presents content in 2d form
-  	var img = new Image(); //gives image a variable 
-  	img.src= "https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg"; 
-  	
-	//img.onload = function() {
-    //	rimage.drawImage(img, 0, 0, 45, 45); //this draws the image inside the rectangle
-	//}
-}
-
-//RESET
-function resetCanvas(){
-	var Rcanvaselem = document.getElementById("myCanvas"); 
-		Rcanvaselem.width = Rcanvaselem.width; //canvas dimensions
-} 
-</script>
-<!--END OF CANVAS FUNCTIONS-->
 	
 </html>
