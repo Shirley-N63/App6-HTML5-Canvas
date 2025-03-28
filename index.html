@@ -61,7 +61,7 @@ function randomImage(){
  	var imagecanvas = document.getElementById("canvas"); 
   	var rimage = imagecanvas.getContext("2d");  //presents content in 2d form
   	var img = new Image(); //gives image a variable 
-  	img.src="https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg" alt="Dormouse">; 
+  	img.src= "https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg"; 
   	
 	img.onload = function() {
     	rimage.drawImage(tree, 0, 0, 45, 45); //this draws the image inside the rectangle
@@ -96,7 +96,6 @@ function resetCanvas(){
 }
 </style>
 
-</style>
 	<canvas id="myCanvas" width="20" height="8" style="border:1px solid #000000;">
 	</canvas>
 <!-- end of style section of code-->
