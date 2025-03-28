@@ -61,7 +61,6 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 </style>
 <!-- end of style section of code-->
 
-
 <!-- this starts the body of the app -->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
@@ -69,13 +68,11 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 </div>
 
 <!--this starts the actual content within the body of the app-->
-<div id="content" class="w3-container">T0Fby students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
+<div id="content" class="w3-container">T or F by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
 	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p> <!--this and the code above are disclaimers to users-->
 
-	
 <!--START OF CANVAS CODE *the following section is broken up by what buttons do when pressed*-->
-<canvas id="myCanvas" width="300" height="225" style="border:1px solid #000000;"> </canvas> <!--this first creates a canvas with a border-->
+<canvas id="myCanvas" width="300" height="225" style="border:1px solid #000000;"> </canvas> <!--this first creates and identifies a canvas with a border-->
 
 <!--RECTANGLE BUTTON-->
 <p><button onclick="draw_b()"> Draw Rectangle </button></p> <!--when this button is pressed, a rectangle will be drawn on the canvas-->
@@ -84,49 +81,51 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 <p><button onclick="draw_c()"> Write my name </button></p> <!--when this button is pressed, it'll put your name on the canvas-->
 
 <!--IMAGE BUTTON-->
-<p><button onclick="draw_d()"> Reset canvas </button></p> <!--when this button is pressed, an image will be loaded onto the canvas-->
+<p><button onclick="draw_d()"> Draw a picture </button></p><!--when this button is pressed, the canvas will be cleared-->
 
 <!--CLEAR BUTTON-->
-<p><button onclick="draw_e()"> Draw a picture </button></p><!--when this button is pressed, the canvas will be cleared-->
+<p><button onclick="draw_e()"> Reset canvas </button></p> <!--when this button is pressed, an image will be loaded onto the canvas-->
 <!--END OF CANVAS CODE-->
 
 <p>..................................................</p>
 
-<!--START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button-->
+<!--the following code IDENTIFIES IMAGE-->
 <img id="dormouse" src="https://3.bp.blogspot.com/-BCB4_TPa_Fo/TrpESCgCvpI/AAAAAAAADKo/BWgEtGvXivE/s1600/dormouses.jpg resize=200,100" alt="dormouse" width="10" height="5">
-<canvas id="myCanvas" width="10" height="5"></canvas>
+<canvas id="myCanvas" width="10" height="5"></canvas> 
 </div>
 
+<!--START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button-->
 <script>
 //RECTANGLE
 function draw_b() {
 	var b_canvas = document.getElementById("myCanvas");
        	var b_context = b_canvas.getContext("2d");
-	b_context.fillRect(120,25,150,100);
+	b_context.fillRect(120,25,150,100); //dimensions of rectangle 
 }
 
 //NAME 
 function draw_c() {
 	var c_canvas = document.getElementById("myCanvas");
        	var c_context = c_canvas.getContext("2d");
-	c_context.fillText("Shirley Nguyen", 5, 25);
+	c_context.fillText("Shirley Nguyen", 5, 25); //display of name and dimensions 
 }
 
-//
+//IMAGE
 function draw_d() {
 	var d_canvas = document.getElementById("myCanvas");
-	d_canvas.width = d_canvas.width;
+       	var d_context = d_canvas.getContext("2d");
+	var d_dormouse = document.getElementById("dormouse"); //this identifies the image
+	d_context.drawImage(dormouse, 50, 100); //this is the dimensions of the image 
 }
 
-//
+//RESET
 function draw_e() {
 	var e_canvas = document.getElementById("myCanvas");
-       	var e_context = e_canvas.getContext("2d");
-	var e_dormouse = document.getElementById("dormouse");
-	e_context.drawImage(dormouse, 50, 100);
+	e_canvas.width = e_canvas.width;
 };
 </script>
 <!--END OF CANVAS FUNCTIONS-->
+
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
