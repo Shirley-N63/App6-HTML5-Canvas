@@ -7,8 +7,8 @@ THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.
  
 Authors in chronological order of contribution:
 Tim Riedel
-Author 2
- 
+Shirley Nguyen 
+	
 Further Information:
 http://cns.utexas.edu/fri
  
@@ -17,10 +17,9 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
- 
+Create an HTML5 drawing canvas with buttons for various drawing actions. 
+	
 Known Issues:
-blah, blah, blah, blah
 https://www.w3schools.com/w3css/default.asp
 https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-file
 -->
@@ -33,20 +32,55 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
       <link rel="stylesheet" href="w3-colors-flat.css">
    </head> 
 
-
-<script>
+<!--this section helps in determining significant time delay between committing changes and when those changes show up.-->
+<script> 
 var docMod = document.lastModified; // loads last modified time stamp into docMod variable
 alert("This file last modified " + docMod); // generates alert box with time stamp. If annoying, comment out this entire line.
 console.log("This file last modified " + docMod); // generates message in javaScript console (found in developers tools) with time stamp. 
-</script>
 
-
-
-<style>	
-.body {
-     margin: 0em;
+//START OF CANVAS FUNCTIONS-- *the following codes are organized based on corresponding button
+var canvas = document.getElementById("myCanvas"); //this gets the canvas and its contents
+    var ctx = canvas.getContext("2d");
+	
+//RECTANGLE
+function drawrectangle() {
+		ctx.fillRect(50, 20, 100, 50); // Draw rectangle (x, y, width, height
+       	 	ctx.fillStyle = "pink"; // Set fill color
 }
-.page {
+
+//NAME 
+function myName(){
+	var namecanvas = document.getElementById("canvas"); 
+	var name = namecanvas.getContext("2d"); //presents content in 2d form 
+	name.font = "30px Century Gothic"; //font of text 
+	name.fillText("Shirley Nguyen", 70, 175); //this code presents the actual text of your name 
+}
+
+//IMAGE
+function randomImage(){
+ 	var imagecanvas = document.getElementById("canvas"); 
+  	var rimage = imagecanvas.getContext("2d");  //presents content in 2d form
+  	var img = new Image(); //gives image a variable 
+  	img src="https://i.dailymail.co.uk/i/pix/2013/04/15/article-0-194D75AD000005DC-866_964x639.jpg" alt="Dormouse">; 
+  	
+	img.onload = function() {
+    	rimage.drawImage(tree, 0, 0, 45, 45); //this draws the image inside the rectangle
+}
+
+//RESET
+function resetCanvas(){
+	var Rcanvaselem = document.getElementById("canvas"); 
+		Rcanvaselem.width = Rcanvaselem.width //canvas dimensions
+} 
+</script>
+<!--END OF CANVAS FUNCTIONS-->
+
+<!-- this section makes the app look nice/focuses on aesthetics and visual presentation -->
+<style>	
+.body { 
+     margin: 0em; 
+} 
+.page { 
     width: 100vw;
     height: 100vh;
     position: fixed;
@@ -62,18 +96,38 @@ console.log("This file last modified " + docMod); // generates message in javaSc
 }
 </style>
 
+</style>
+	<canvas id="myCanvas" width="20" height="8" style="border:1px solid #000000;">
+	</canvas>
+<!-- end of style section of code-->
+
+<!-- this starts the body of the app -->
 <body>
 <div id="header" class="w3-container w3-flat-carrot">
-	<h1>App6---HTML5-Canvas</h1>
+	<h1>Shirley's Canvas</h1> <!--this is the main header of the app page-->
 </div>
-	
-<div id="content" class="w3-container">
-	<p>Content goes here.</p>
-		
-	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at 		Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
- 	
-	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
 
+<!--this starts the actual content within the body of the app-->
+<div id="content" class="w3-container">T0Fby students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+ 	
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p> <!--this and the code above are disclaimers to users-->
+
+<!--START OF CANVAS CODE *the following section is broken up by what buttons do when pressed*-->
+<canvas id="myCanvas" width="300" height="225" style="border:1px solid #000000;"> </canvas> <!--this first creates a canvas with a border-->
+
+<!--RECTANGLE BUTTON-->
+<button id="rectangle" type="button" onclick="drawrectangle()"> Rectangle </button> <!--when this button is pressed, a rectangle will be drawn on the canvas-->
+
+<!--NAME BUTTON-->
+<button id="YourName" type="button" onclick="myName()"> Name </button> <!--when this button is pressed, it'll put your name on the canvas-->
+
+<!--IMAGE BUTTON-->
+<button id="Image" type="button" onclick="randomImage()"> Image </button> <!--when this button is pressed, an image will be loaded onto the canvas-->
+
+<!--CLEAR BUTTON-->
+<button id="Reset" type="button" onclick="resetCanvas()"> Reset </button> <!--when this button is pressed, the canvas will be cleared-->
+<!--END OF CANVAS CODE-->
+	
 <footer class="w3-bottom w3-container w3-flat-carrot">
 	<p>DIY!</p>
 </footer>
